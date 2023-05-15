@@ -1,4 +1,5 @@
 const  SEND_MESSAGE = 'SEND_MESSAGE';
+//const  RENDER_MESSAGE = 'RENDER_MESSAGE';
 
 let initialState = {
       dialogs : [
@@ -11,8 +12,8 @@ let initialState = {
         {id: 7, name: 'MapNameId'},
         {id: 8, name: 'Less_23.03.2022'},
         {id: 9, name: 'Less29'}
-
       ],
+      newMessageDial:'',
       messages : [
         {id: 1, message: 'Hi !!!'},
         {id: 2, message: 'How is your it-kamasutra?'},
@@ -24,10 +25,11 @@ let initialState = {
         {id: 8, message: '27.03.2022 - messages arr'}
       ],
       newMessageBody: ''
+      
   
 }
 
- const dialogsReducer = (state=initialState, action)=>{
+ const dialogReducer = (state=initialState, action)=>{
      switch(action.type){
      case SEND_MESSAGE:
       let body = action.newMessageBody;
@@ -40,7 +42,21 @@ let initialState = {
     return state
    }
   }
-   
-  export const sendMessageCreator = (newMessageBody)=>({type: SEND_MESSAGE, newMessageBody})
+//   const renderDialogsReducer = (state=initialState, action)=>{
+//     switch(action.type){
+//     case RENDER_MESSAGE:
+//      let bodyDial = action.newMessageDial;
+//      return {
+//        ...state,
+//        dialogs: [...state.dialogs, {id: 12, name: bodyDial}]
+//      };
+//     default:
+//    return state
+//   }
   
-export default dialogsReducer;
+//  }
+
+ export const sendMessageCreator = (newMessageBody)=>({type: SEND_MESSAGE, newMessageBody});
+// export const renderDialogsCreator = (newMessageDial)=>({type: RENDER_MESSAGE, newMessageDial}) 
+
+//export default dialogsReducer;

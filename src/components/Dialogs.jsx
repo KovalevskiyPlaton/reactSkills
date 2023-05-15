@@ -1,18 +1,20 @@
 import React from "react";
-import { useSelector, useDispatch } from 'react-redux';
-//const dialogs  = useSelector(state=>state.profilePage)
+import { useSelector } from 'react-redux';
 
 const Dialogs = ()=>{
   
-  const dispatch = useDispatch();
-  const dialogs = useSelector(state=>state.dialogs)
+  const dialogs  = useSelector(state=>state.dialogsPage.dialogs)
+   
+  
   console.log(dialogs)
-  debugger
+  
   return(
     <>
-        <div>{dialogs}</div>
-        <h5> здесь будут отображатся диалоги</h5>
-        <button></button>
+        <div>{
+        dialogs.map(d => <div>{d.id} : {d.name} </div>)
+        }</div>
+        
+        <button>add user</button>
     </>
   )
     

@@ -59,4 +59,4 @@ let initialState = {
  export const sendMessageCreator = (newMessageBody)=>({type: SEND_MESSAGE, newMessageBody});
 // export const renderDialogsCreator = (newMessageDial)=>({type: RENDER_MESSAGE, newMessageDial}) 
 
-//export default dialogsReducer;
+export default dialogReducer;

@@ -35,8 +35,7 @@ let initialState = {
       let body = action.newMessageBody;
       return {
         ...state,
-        
-        messages: [...state.messages, {id: 10, message: body}]
+        messages: [...state.messages, body]
       };
      default:
     return state

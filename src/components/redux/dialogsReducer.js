@@ -24,7 +24,7 @@ let initialState = {
         {id: 7, message: '23.03.2022'},
         {id: 8, message: '27.03.2022 - messages arr'}
       ],
-      newMessageBody: ''
+      newMessageBody: '',
       
   
 }
@@ -35,7 +35,8 @@ let initialState = {
       let body = action.newMessageBody;
       return {
         ...state,
-        messages: [...state.messages, body]
+        messages: [...state.messages, body],
+        
       };
      default:
     return state

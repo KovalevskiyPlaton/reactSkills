@@ -12,10 +12,17 @@ const Dialogs = ()=>{
       id: (Math.ceil(Math.random()*10*80)),
       
     }
-    dispatch(sendMessageCreator(mess))
-  }
+   dispatch(sendMessageCreator(mess))
+  } 
   const [inputValue, setInputval] = useState('')
- 
+  const handleChange = e =>{
+    setInputval(e.target.value)
+  }
+  const handleInput = e => {
+    // access event.which for the keycode and eventually clear the inputfield value
+    setInputval('');
+  }  
+
   
   return(
     <>
@@ -23,16 +30,27 @@ const Dialogs = ()=>{
         dialogs.map(d => <div key={d.id}>{d.id} : {d.message} </div>)
         }</div>
         {/* <input placeholder="введи юзера"/> */}
-          <button onClick={()=>addMessage(prompt(''))}>Send message (variant 1)</button>
-       <textarea type="text" name="comment" placeholder="Введите комментарий"  value={inputValue} onChange={e=>setInputval(e.target.value)}
-       />
+       <button onClick={()=>addMessage(prompt(''))}>Send message (variant 1)</button>
        
+       <textarea type="text"
+       name="comment" 
+       placeholder="Введите сообщение"  
+       value={inputValue} 
+       onChange={handleChange}
+       onClick={()=>handleInput()}
+      />
+      
       <input
       type="button"
       onClick={()=>addMessage(inputValue)}
       className="submitBtn"
-      value={'Enter'}
-
+      value={'Send message (variant 2)'}
+      />
+      <input
+      type="button"
+      className="submitBtn"
+      value={'Clear text'}
+      onClick={()=>handleInput()}
       />
        
       

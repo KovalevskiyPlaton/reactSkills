@@ -1,29 +1,32 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { sendMessageCreator} from "./redux/dialogsReducer";
+import { connect } from "react-redux";
 
 
-const Dialogs = ()=>{
-  const dispatch = useDispatch()
+const DialogsMapDisp = ()=>{
+  // const dispatch = useDispatch()
   const dialogs  = useSelector(state=>state.dialogsPage.messages)
-  const addMessage = (message) =>{
-  const mess = {
-      message,
-      id: (Math.ceil(Math.random()*10*80)),
+  // const addMessage = (message) =>{
+  // const mess = {
+  //     message,
+  //     id: (Math.ceil(Math.random()*10*80)),
       
-    }
-   dispatch(sendMessageCreator(mess))
-  } 
+  //   }
+  //  dispatch(sendMessageCreator(mess))
+  // } 
   const [inputValue, setInputval] = useState('')
   
   const handleChange = e =>{
     setInputval(e.target.value)
   }
   const handleInput = e => {
-    // access event.which for the keycode and eventually clear the inputfield value
+    // очищаем инпут
     setInputval('');
   }  
-
+const addMessage =()=>{
+  return console.log('Сделай через  mapDispatchToProps')
+}
   
   return(
     <>
@@ -31,7 +34,7 @@ const Dialogs = ()=>{
         dialogs.map(d => <div key={d.id}>{d.id} : {d.message} </div>)
         }</div>
         {/* <input placeholder="введи юзера"/> */}
-       <button onClick={()=>addMessage(prompt(''))}>Send message (variant 1)</button>
+       <button onClick={()=>addMessage()}>Send message (variant 1)</button>
        
        <textarea type="text"
        name="comment" 
@@ -43,7 +46,7 @@ const Dialogs = ()=>{
       
       <input
       type="button"
-      onClick={()=>addMessage(inputValue)}
+      onClick={()=>addMessage()}
       className="submitBtn"
       value={'Send message (variant 2)'}
       />
@@ -59,5 +62,19 @@ const Dialogs = ()=>{
   )
     
 }
+const mapStateToProps = (state)=>{ 
+    return{
+        dialogsPage: state.messages
+    }
+}
 
-export default Dialogs
+// let mapDispatchToProps =(dispatch)=>{
+//   return {
+//      sendMessage: (newMessageBody)=>{
+//         dispatch(sendMessageCreator(newMessageBody));
+//      }
+//   }
+// }
+
+
+export default connect(mapStateToProps)(DialogsMapDisp) 

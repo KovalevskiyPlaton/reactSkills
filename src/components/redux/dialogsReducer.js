@@ -10,13 +10,13 @@ let initialState = {
         {id: 5, name: 'Viktor'},
         {id: 6, name: 'Valera'},
         {id: 7, name: 'MapNameId'},
-        {id: 8, name: 'Less_23.03.2022'},
-        {id: 9, name: 'Less29'}
+        {id: 8, name: 'Less_one'},
+        {id: 9, name: 'Less_nwei'}
       ],
       newMessageDial:'',
       messages : [
         {id: 1, message: 'Hi !!!'},
-        {id: 2, message: 'How is your it-kamasutra?'},
+        {id: 2, message: 'How are you??'},
         {id: 3, message: 'Yo'},
         {id: 4, message: 'Yo'},
         {id: 5, message: 'Yo'},

@@ -1,52 +1,30 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { sendMessageCreator} from "./redux/dialogsReducer";
-import { connect } from "react-redux";
+import React  from "react";
 
 
-const DialogsMapDisp = ()=>{
-  // const dispatch = useDispatch()
-  const dialogs  = useSelector(state=>state.dialogsPage.messages)
-  // const addMessage = (message) =>{
-  // const mess = {
-  //     message,
-  //     id: (Math.ceil(Math.random()*10*80)),
-      
-  //   }
-  //  dispatch(sendMessageCreator(mess))
-  // } 
-  const [inputValue, setInputval] = useState('')
+const Dialogs = (props)=>{
+  let dialogs = props.dialogsPage.dialogsPage.messages
+  console.log(dialogs)
   
-  const handleChange = e =>{
-    setInputval(e.target.value)
-  }
-  const handleInput = e => {
-    // очищаем инпут
-    setInputval('');
-  }  
-const addMessage =()=>{
-  return console.log('Сделай через  mapDispatchToProps')
-}
+  
+
   
   return(
     <>
-        <div>{
+         <div>{
         dialogs.map(d => <div key={d.id}>{d.id} : {d.message} </div>)
-        }</div>
+        }</div> 
         {/* <input placeholder="введи юзера"/> */}
-       <button onClick={()=>addMessage()}>Send message (variant 1)</button>
+       <button onClick={()=>console.log('addMessage(prompt())')}>Send message (variant 1)</button>
        
        <textarea type="text"
        name="comment" 
        placeholder="Введите сообщение"  
-       value={inputValue} 
-       onChange={handleChange}
-       onClick={()=>handleInput()}
+       
       />
       
       <input
       type="button"
-      onClick={()=>addMessage()}
+      onClick={()=>console.log('addMessage(prompt())')}
       className="submitBtn"
       value={'Send message (variant 2)'}
       />
@@ -54,7 +32,7 @@ const addMessage =()=>{
       type="button"
       className="submitBtn"
       value={'Clear text'}
-      onClick={()=>handleInput()}
+      
       />
        
       
@@ -62,19 +40,5 @@ const addMessage =()=>{
   )
     
 }
-const mapStateToProps = (state)=>{ 
-    return{
-        dialogsPage: state.messages
-    }
-}
 
-// let mapDispatchToProps =(dispatch)=>{
-//   return {
-//      sendMessage: (newMessageBody)=>{
-//         dispatch(sendMessageCreator(newMessageBody));
-//      }
-//   }
-// }
-
-
-export default connect(mapStateToProps)(DialogsMapDisp) 
+export default Dialogs

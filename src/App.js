@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Dialogs from './components/Dialogs';
-import DialogsMapDisp from './components/DialogsMapDisp';
+import DialogsContainer from './components/DialogsContainer';
 
 
 function App() {
@@ -9,7 +9,9 @@ function App() {
     <div className="App">
         <h1>Hello world</h1>
         {/* <Dialogs/> */}
-        <DialogsMapDisp/>
+        <DialogsContainer/>
+          
+       
     </div>
   );
 }

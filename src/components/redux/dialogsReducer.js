@@ -1,5 +1,10 @@
 const  SEND_MESSAGE = 'SEND_MESSAGE';
-//const  RENDER_MESSAGE = 'RENDER_MESSAGE';
+const  UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+
+function generateId (){
+  return Math.ceil(Math.random()*12*255)
+}
+
 
 let initialState = {
       dialogs : [
@@ -31,11 +36,17 @@ let initialState = {
 
  const dialogReducer = (state=initialState, action)=>{
      switch(action.type){
+      case UPDATE_NEW_MESSAGE_BODY:
+            return {
+                ...state,
+                newMessageBody: action.body
+            };
      case SEND_MESSAGE:
-      let body = action.newMessageBody;
+      let body = state.newMessageBody;
       return {
         ...state,
-        messages: [...state.messages, body],
+        newMessageBody: '',
+        messages: [...state.messages, {id: generateId(), message: body}]
         
       };
      default:
@@ -58,5 +69,5 @@ let initialState = {
 
  export const sendMessageCreator = (newMessageBody)=>({type: SEND_MESSAGE, newMessageBody});
 // export const renderDialogsCreator = (newMessageDial)=>({type: RENDER_MESSAGE, newMessageDial}) 
-
+export const updateNewMessageBodyCreator = (body) =>({type: UPDATE_NEW_MESSAGE_BODY, body: body})
 export default dialogReducer;

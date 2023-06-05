@@ -1,4 +1,4 @@
-import { sendMessageCreator, updateNewMessageBodyCreator} from "./redux/dialogsReducer";
+import { sendMessageCreator, updateNewMessageBodyCreator} from "../redux/dialogsReducer";
 import { connect } from "react-redux";
 import DialogsMapDisp from  './DialogsMapDisp.jsx'
 

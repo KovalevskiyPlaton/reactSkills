@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { sendMessageCreator} from "./redux/dialogsReducer";
+import { sendMessageCreator} from "../redux/dialogsReducer";
 
 
 const Dialogs = ()=>{
   const dispatch = useDispatch()
   const dialogs  = useSelector(state=>state.dialogsPage.messages)
   const addMessage = (message) =>{
+    debugger
   const mess = {
       message,
       id: (Math.ceil(Math.random()*10*80)),
       
     }
+    console.log(mess)
    dispatch(sendMessageCreator(mess))
+   
   } 
   const [inputValue, setInputval] = useState('')
   
@@ -27,7 +30,8 @@ const Dialogs = ()=>{
   
   return(
     <>
-        <div>{
+       
+        <div style={{width:900+'px' ,backgroundColor:'darkgray'}}>{
         dialogs.map(d => <div key={d.id}>{d.id} : {d.message} </div>)
         }</div>
         {/* <input placeholder="введи юзера"/> */}

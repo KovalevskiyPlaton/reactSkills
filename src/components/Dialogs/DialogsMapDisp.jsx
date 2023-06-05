@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React  from "react";
 
 
 const Dialogs = (props)=>{
@@ -32,33 +32,26 @@ let onNewMessageChange = (e) => {
 // }
   return(
     <>
+    <h1>Section  - Send Messages from Container Component</h1>
       <span>{renderUsers}:{renderDialogs}</span>
-       {/* <input placeholder="введи юзера"/> */}
-       <button onClick={()=>console.log('addMessage(prompt())')}>Send message (variant 1)</button>
-       
+          
        <textarea type="text"
        value={newMessageBody}
        name="comment" 
        placeholder="Введите сообщение"  
-      //  onChange={handleChange(values)}
+   
       onChange={onNewMessageChange}
       />
       
       <input
       type="button"
-      // onClick={()=>console.log('addMessage(prompt())')}
+    
       className="submitBtn"
-      value={'Send message (variant 2)'}
+      value={'Send message'}
       onClick={onSendMessageClick}
             />
-      <input
-      type="button"
-      className="submitBtn"
-      value={'Clear text'}
       
-      />
-       
-      
+           
     </>
   )
     

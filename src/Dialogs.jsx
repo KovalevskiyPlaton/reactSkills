@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { sendMessageCreator} from "./redux/dialogsReducer";
+import { sendMessageCreator} from "../src/components/redux/dialogsReducer";
 
 
 const Dialogs = ()=>{
@@ -27,6 +27,7 @@ const Dialogs = ()=>{
   
   return(
     <>
+     <h1>Section  - simple componenet Dialog</h1>
         <div>{
         dialogs.map(d => <div key={d.id}>{d.id} : {d.message} </div>)
         }</div>

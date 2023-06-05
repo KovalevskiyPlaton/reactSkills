@@ -53,21 +53,8 @@ let initialState = {
     return state
    }
   }
-//   const renderDialogsReducer = (state=initialState, action)=>{
-//     switch(action.type){
-//     case RENDER_MESSAGE:
-//      let bodyDial = action.newMessageDial;
-//      return {
-//        ...state,
-//        dialogs: [...state.dialogs, {id: 12, name: bodyDial}]
-//      };
-//     default:
-//    return state
-//   }
-  
-//  }
 
- export const sendMessageCreator = (newMessageBody)=>({type: SEND_MESSAGE, newMessageBody});
-// export const renderDialogsCreator = (newMessageDial)=>({type: RENDER_MESSAGE, newMessageDial}) 
+
+export const sendMessageCreator = (newMessageBody)=>({type: SEND_MESSAGE, newMessageBody});
 export const updateNewMessageBodyCreator = (body) =>({type: UPDATE_NEW_MESSAGE_BODY, body: body})
 export default dialogReducer;

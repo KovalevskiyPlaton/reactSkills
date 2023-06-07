@@ -1,7 +1,8 @@
 const  SEND_MESSAGE = 'SEND_MESSAGE';
 const  UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const  SEND_SIMPLE_MESSAGE = 'SEND_SIMPLE_MESSAGE';
 
-function generateId (){
+export function generateId (){
   return Math.ceil(Math.random()*12*255)
 }
 
@@ -31,6 +32,7 @@ let initialState = {
       ],
       newMessageBody: '',
       
+      
   
 }
 
@@ -47,8 +49,13 @@ let initialState = {
         ...state,
         newMessageBody: '',
         messages: [...state.messages, {id: generateId(), message: body}]
-        
       };
+         case SEND_SIMPLE_MESSAGE:
+             let innerMess = action.newMessageBody;
+             return {
+                 ...state,
+                 messages: [...state.messages, innerMess],
+             };
      default:
     return state
    }
@@ -57,4 +64,5 @@ let initialState = {
 
 export const sendMessageCreator = (newMessageBody)=>({type: SEND_MESSAGE, newMessageBody});
 export const updateNewMessageBodyCreator = (body) =>({type: UPDATE_NEW_MESSAGE_BODY, body: body})
+export const sendSimpleMessageCreator = (newMessageBody) =>({type: SEND_SIMPLE_MESSAGE, newMessageBody})
 export default dialogReducer;

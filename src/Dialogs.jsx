@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { sendMessageCreator} from "../src/components/redux/dialogsReducer";
+import { sendSimpleMessageCreator, generateId} from "../src/components/redux/dialogsReducer";
 
 
-const Dialogs = ()=>{
+  const Dialogs = ()=>{
   const dispatch = useDispatch()
   const dialogs  = useSelector(state=>state.dialogsPage.messages)
   const addMessage = (message) =>{
   const mess = {
       message,
-      id: (Math.ceil(Math.random()*10*80)),
-      
-    }
-   dispatch(sendMessageCreator(mess))
+      id: generateId(),
+          }
+   dispatch(sendSimpleMessageCreator(mess))
   } 
   const [inputValue, setInputval] = useState('')
   
@@ -27,7 +26,7 @@ const Dialogs = ()=>{
   
   return(
     <>
-     <h1>Section  - simple componenet Dialog</h1>
+     <h1>Section  - simple componenet Dialog (2 variants)</h1>
         <div>{
         dialogs.map(d => <div key={d.id}>{d.id} : {d.message} </div>)
         }</div>

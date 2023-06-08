@@ -41,14 +41,7 @@ import { sendSimpleMessageCreator, generateId} from "../src/components/redux/dia
           }</div>
       </td>
      </table>
-        {/*<div>{
-        messagesSender.map(mS => <div key={mS.id}>{mS.message} </div>)
-       }:</div>
-          <div>{
-        dialogsSender.map(d => <div key={d.id}>{d.name}</div>)
-        }</div>*/}
-        {/* <input placeholder="введи юзера"/> */}
-       <button onClick={()=>addMessage(prompt(''))}>Send message (variant 1)</button>
+        <button onClick={()=>addMessage(prompt(''))}>Send message (variant 1)</button>
        
        <textarea type="text"
        name="comment" 

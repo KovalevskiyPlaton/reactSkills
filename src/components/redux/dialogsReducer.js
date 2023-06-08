@@ -9,26 +9,27 @@ export function generateId (){
 
 let initialState = {
       dialogs : [
-        {id: 1, name: 'Dimych'},
-        {id: 2, name: 'Andrey'},
-        {id: 3, name: 'Sveta'},
-        {id: 4, name: 'Sasha'}, 
-        {id: 5, name: 'Viktor'},
-        {id: 6, name: 'Valera'},
-        {id: 7, name: 'MapNameId'},
-        {id: 8, name: 'Less_one'},
-        {id: 9, name: 'Less_nwei'}
+        {id: 1, name: 'Dilan'},
+        {id: 2, name: 'Boby'},
+        {id: 3, name: 'Harry'},
+        {id: 4, name: 'Salevan'}, 
+        {id: 5, name: 'Vishman'},
+        {id: 6, name: 'Klishman'},
+        {id: 7, name: 'Freman'},
+        {id: 8, name: 'Ishvan'},
+        {id: 9, name: 'Stefan'}
       ],
       newMessageDial:'',
       messages : [
-        {id: 1, message: 'Hi !!!'},
-        {id: 2, message: 'How are you??'},
-        {id: 3, message: 'Yo'},
-        {id: 4, message: 'Yo'},
-        {id: 5, message: 'Yo'},
+        {id: 1, message: 'Hi !!! I am Dilan'},
+        {id: 2, message: 'Lemon tree'},
+        {id: 3, message: 'good coding'},
+        {id: 4, message: 'link for you https://'},
+        {id: 5, message: 'I must pass on the secret'},
         {id: 6, message: 'Hellow from map !!'},
-        {id: 7, message: '23.03.2022'},
-        {id: 8, message: '27.03.2022 - messages arr'}
+        {id: 7, message: 'And sweating blood, he prayed to his Father That this cup of death might pass'},
+        {id: 8, message: 'I only need to pass these guards and I can do it," he said at last'},
+        {id: 9, message: 'it`s - working'}
       ],
       newMessageBody: '',
       

@@ -5,7 +5,9 @@ import { sendSimpleMessageCreator, generateId} from "../src/components/redux/dia
 
   const Dialogs = ()=>{
   const dispatch = useDispatch()
-  const dialogs  = useSelector(state=>state.dialogsPage.messages)
+  const messagesSender  = useSelector(state=>state.dialogsPage.messages)
+  const dialogsSender  = useSelector(state=>state.dialogsPage.dialogs)
+  console.log(dialogsSender)
   const addMessage = (message) =>{
   const mess = {
       message,
@@ -27,9 +29,24 @@ import { sendSimpleMessageCreator, generateId} from "../src/components/redux/dia
   return(
     <>
      <h1>Section  - simple componenet Dialog (2 variants)</h1>
-        <div>{
-        dialogs.map(d => <div key={d.id}>{d.id} : {d.message} </div>)
-        }</div>
+     <table style={{margin: '0 auto'}}>
+      <td>
+      <div>{
+            dialogsSender.map(d => <div key={d.id}>{d.name}</div>)
+            }</div>
+      </td>
+      <td >
+         <div>{
+            messagesSender.map(mS => <div key={mS.id}>{mS.message} </div>)
+          }</div>
+      </td>
+     </table>
+        {/*<div>{
+        messagesSender.map(mS => <div key={mS.id}>{mS.message} </div>)
+       }:</div>
+          <div>{
+        dialogsSender.map(d => <div key={d.id}>{d.name}</div>)
+        }</div>*/}
         {/* <input placeholder="введи юзера"/> */}
        <button onClick={()=>addMessage(prompt(''))}>Send message (variant 1)</button>
        

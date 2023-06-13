@@ -6,7 +6,7 @@ const Dialogs = (props)=>{
   let dialogs = props.dialogsPage.messages
   let users = props.dialogsPage.dialogs
   let renderDialogs = dialogs.map(d => <div key={d.id}>{d.message}</div>)
-  let renderUsers = users.map(u => <div key={u.id} >{u.name}</div>)   
+  let renderUsers = users.map(u => <div key={u.id} >{u.name}</div>)
   
   let newMessageBody = state.newMessageBody;
 
@@ -33,10 +33,10 @@ let onNewMessageChange = (e) => {
   return(
     <>
     <h1>Section  - Send Messages from Container Component</h1>
-      <table style={{margin: '0 auto'}}>
+      <React.Fragment>
         <td>{renderUsers}</td>
         <td>{renderDialogs}</td>
-      </table>
+      </React.Fragment>
           
        <textarea type="text"
        value={newMessageBody}

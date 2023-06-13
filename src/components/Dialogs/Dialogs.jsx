@@ -35,7 +35,7 @@ const Dialogs = ()=>{
         dialogs.map(d => <div key={d.id}>{d.id} : {d.message} </div>)
         }</div>
         {/* <input placeholder="введи юзера"/> */}
-       <button onClick={()=>addMessage(prompt(''))}>Send message (variant 1)</button>
+
        
        <textarea type="text"
        name="comment" 

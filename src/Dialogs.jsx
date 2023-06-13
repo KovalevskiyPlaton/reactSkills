@@ -7,7 +7,7 @@ import { sendSimpleMessageCreator, generateId} from "../src/components/redux/dia
   const dispatch = useDispatch()
   const messagesSender  = useSelector(state=>state.dialogsPage.messages)
   const dialogsSender  = useSelector(state=>state.dialogsPage.dialogs)
-  console.log(dialogsSender)
+
   const addMessage = (message) =>{
   const mess = {
       message,
@@ -25,21 +25,22 @@ import { sendSimpleMessageCreator, generateId} from "../src/components/redux/dia
     setInputval('');
   }  
 
-  
+  const dialogRender = dialogsSender.map(d => <td key={d.id} style={{border: '3px solid blue'}}>{d.name}:</td> )
+
+  const messagesRender =  messagesSender.map(mS => <td key={mS.id} style={{border: '3px solid green'}}>{mS.message} </td>)
   return(
+
     <>
      <h1>Section  - simple componenet Dialog (2 variants)</h1>
-     <table style={{margin: '0 auto'}}>
-      <td>
-      <div>{
-            dialogsSender.map(d => <div key={d.id}>{d.name}</div>)
-            }</div>
-      </td>
-      <td >
-         <div>{
-            messagesSender.map(mS => <div key={mS.id}>{mS.message} </div>)
-          }</div>
-      </td>
+     <table style={{margin: '0 auto'}} style={{border: '8px double red'}}>
+         <tbody >
+      <tr style={{border: '8px double green'}} >
+               {dialogRender}
+      </tr>
+      <tr>
+            {messagesRender}
+      </tr>
+         </tbody>
      </table>
         <button onClick={()=>addMessage(prompt(''))}>Send message (variant 1)</button>
        

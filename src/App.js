@@ -9,12 +9,11 @@ function App() {
   return (
     <div className="App">
       
-        <h1>Redux senders-testing workPalce</h1>
+        <h1>Redux skill</h1>
         <NavBar/>
         <Routes>
-        
         <Route path="/dialogsSim/" element={<Dialogs/>}/>
-        <Route path="/dialogsContair/" element={<DialogsContainer/>}/>
+        {/*<Route path="/dialogsContair/" element={<DialogsContainer/>}/>*/}
         </Routes>
        
     </div>
